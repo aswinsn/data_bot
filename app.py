@@ -1,18 +1,18 @@
 import tweepy
 import time
 
-api_key = "0nOI9Y1sg5xqgZQFneiTOKQn8"
-api_secret = "oRe8VX4tyS5AP8h74nImtyLSE7r25aeuboq7BDjSLV6siRSfsq"
+api_key = ""
+api_secret = ""
 
-a_token = "1254538318722678785-DYSt4x1FBgKINsr1Pd0CDGEse6NTkA"
-a_t_secret = "iQ1SbQYnJSPRN3m9blqZ3t8ZL82aW0AfYHJiSWwUqTQRl"
+a_token = ""
+a_t_secret = ""
 
 auth = tweepy.OAuthHandler(api_key, api_secret)
 auth.set_access_token(a_token, a_t_secret)
 
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-key_words = "research data management"
+key_words = "research data management" or "FAIR data" or "FAIR principles"
 
 nrTweets = 500
 
