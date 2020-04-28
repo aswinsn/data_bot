@@ -1,11 +1,13 @@
 import tweepy
 import time
+import os
+from os import environ
 
-api_key = ""
-api_secret = ""
+api_key = environ["api_key"]
+api_secret = environ["api_secret"]
 
-a_token = ""
-a_t_secret = ""
+a_token = environ["a_token"]
+a_t_secret = environ["a_t_secret"]
 
 auth = tweepy.OAuthHandler(api_key, api_secret)
 auth.set_access_token(a_token, a_t_secret)
