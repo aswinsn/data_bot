@@ -14,7 +14,7 @@ auth.set_access_token(a_token, a_t_secret)
 
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-key_words = "research data management" or "FAIR data" or "FAIR principles"
+key_words = "FAIR research data management principles"
 
 nrTweets = 500
 
@@ -24,7 +24,7 @@ for tweet in tweepy.Cursor(api.search, key_words).items(nrTweets):
     try:
         print("Retweet success!")
         tweet.retweet()
-        time.sleep(300)
+        time.sleep(150)
     except tweepy.TweepError as e:
         print(e.reason)
     except StopIteration:
