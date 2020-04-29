@@ -14,7 +14,7 @@ auth.set_access_token(a_token, a_t_secret)
 
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-key_words = "FAIRdata" or "datamanagement"
+key_words = "FAIRdata" or "datamanagement" or "researchdata"
 
 nrTweets = 800
 
