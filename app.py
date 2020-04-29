@@ -23,7 +23,7 @@ key_words = (
     or "#FAIRdata"
 )
 
-nrTweets = 500
+nrTweets = 800
 
 user = api.me()
 
@@ -31,7 +31,7 @@ for tweet in tweepy.Cursor(api.search, key_words).items(nrTweets):
     try:
         print("Retweet success!")
         tweet.retweet()
-        time.sleep(150)
+        time.sleep(120)
     except tweepy.TweepError as e:
         print(e.reason)
     except StopIteration:
