@@ -1,7 +1,12 @@
-import tweepy
-import time
+import datetime
 import os
+import time
 from os import environ
+
+import tweepy
+
+today_date = datetime.date.today()
+since_date = today_date - datetime.timedelta(days=1)
 
 api_key = environ["api_key"]
 api_secret = environ["api_secret"]
@@ -20,11 +25,11 @@ nrTweets = 800
 
 user = api.me()
 
-for tweet in tweepy.Cursor(api.search, key_words).items(nrTweets):
+for tweet in tweepy.Cursor(api.search, q=key_words, since=since_date).items(nrTweets):
     try:
         print("Retweet success!")
         tweet.retweet()
-        time.sleep(120)
+        time.sleep(300)
     except tweepy.TweepError as e:
         print(e.reason)
     except StopIteration:
