@@ -21,15 +21,18 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 q = "FAIRdata" or "datamanagement" or "datagovernance" or "datascience"
 
-nrTweets = 500
+nrTweets = 20
 
 user = api.me()
 
 for tweet in tweepy.Cursor(api.search, q=q, since=since_date).items(nrTweets):
     try:
-        print("Retweet success!")
-        tweet.retweet()
-        time.sleep(1800)
+        if tweet.id in api.home_timeline().id:
+            print("Already retweeted")
+        else:
+            print("Retweet success!")
+            tweet.retweet()
+            time.sleep(300)
     except tweepy.TweepError as e:
         print(e.reason)
     except StopIteration:
