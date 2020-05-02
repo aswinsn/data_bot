@@ -19,20 +19,13 @@ auth.set_access_token(a_token, a_t_secret)
 
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-key_words = (
-    "FAIRdata"
-    or "datamanagement"
-    or "researchdata"
-    or "OpenScience"
-    or "datascience"
-    or "scientificdata"
-)
+q = "FAIRdata" or "datamanagement" or "datagovernance" or "datascience"
 
 nrTweets = 800
 
 user = api.me()
 
-for tweet in tweepy.Cursor(api.search, q=key_words, since=since_date).items(nrTweets):
+for tweet in tweepy.Cursor(api.search, q=q, since=since_date).items(nrTweets):
     try:
         print("Retweet success!")
         tweet.retweet()
