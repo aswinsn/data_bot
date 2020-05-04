@@ -27,12 +27,8 @@ user = api.me()
 
 for tweet in tweepy.Cursor(api.search, q=q, since=since_date).items(nrTweets):
     try:
-        if tweet.id in api.home_timeline().id:
-            print("Already retweeted")
-        else:
-            print("Retweet success!")
-            tweet.retweet()
-            time.sleep(300)
+        tweet.retweet()
+        time.sleep(300)
     except tweepy.TweepError as e:
         print(e.reason)
     except StopIteration:
